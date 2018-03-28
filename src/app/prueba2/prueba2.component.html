@@ -1,0 +1,26 @@
+<div>
+  <button class="btn" (click)="func_mostrarcomponentes2()">{{mostrarcomponentes2 ? 'Oculta panel' : 'Muestra panel'}}</button>
+  <br>
+  <div class="componente2" *ngIf="mostrarcomponentes2">
+    <h2 >Estos son mis hobbies.</h2>
+    
+        <form> 
+      <select name="hobby2">
+        <option *ngFor="let x of hobbies; let i=index" value="{{x}}">{{x}}</option>
+      </select>
+    
+    <input #hobby type="button" class="btn" (click)= "newHobby(hobby)" value="Crear">
+     </form>
+    <ul> 
+     <li *ngFor="let x of hobbies; let i=index">
+        {{x}} <input type="button" class="btn" (click)="borrar_hobbiies(i)" value="Eliminar">
+      </li>
+      
+    </ul>
+    <form (submit)= newHobby(hobby)>
+      <input #hobby type="text" name="hobby" > <input type="submit" class="btn" value="Crear">
+    </form>
+    <p>el numero de elementos son {{hobbies.length}}</p>
+  </div>
+</div>
+
